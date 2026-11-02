@@ -1,0 +1,14 @@
+Input file format:
+{
+  "subject": "API latency very high",
+  "description": "Our calls to the reports endpoint have been taking 8 to 10 seconds since the weekend. Nothing changed on our side. Customers are noticing.",
+  "category": "technical",
+  "priority": "high"
+}
+Output format generated from tool:
+{
+  "subject": "API latency very high",
+  "description": "Our calls to the reports endpoint have been taking 8 to 10 seconds since the weekend. Nothing changed on our side. Customers are noticing.",
+  "category": "technical",
+  "priority": "high"
+}
