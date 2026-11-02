@@ -1,0 +1,26 @@
+from langchain_openai import ChatOpenAI
+from langchain_core.tools import tool
+from langchain.agents import create_agent
+import glob
+
+@tool
+def read_files(path:str) -> str:
+    """Read the content of file inside {path} and return content"""
+    with open(path, "r") as f:
+        return(f.read())
+@tool
+def write_files(target:str, content:str) -> str:
+    """Read {content} and categorize as suggested in system_prompt and save it in {target}"""
+    with open(target, "w")  as W:
+        W.write(content)
+        return
+
+model=ChatOpenAI(model="gpt-oss-120b")
+agent=create_agent(model=model,
+                   tools=[read_files,write_files],
+                   system_prompt="You are helpfull assistant use read_files when you have to read file and write_file to segregate the tickets in json format")
+
+files=glob.glob("/root/tickets/*.txt")
+for filename in files:
+    out=agent.invoke({"messages":[{"role":"user","content":f"Read content of {filename} and categorize it with  at least these two fields:category - one of billing, technical, account, or other. priority - one of low, medium, or high. Save these data in json file under /root/triaged directory in same naming format."}]}) 
+    print(out["messages"][-1].text)
