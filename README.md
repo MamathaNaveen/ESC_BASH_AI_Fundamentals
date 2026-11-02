@@ -7,11 +7,6 @@ Set up the project
 Run this to drop a folder of real-looking support tickets at /root/tickets/:
 
 bash
-
-
-curl -fsSL https://raw.githubusercontent.com/Esc-Bash/project-init-scripts/main/ai/project-1/init.sh | bash
-Have a look at the files it created so you know what you are working with.
-
 What to build
 Turn each raw ticket into a small, structured record a dashboard could load: what kind of issue it is, and how urgent it looks.
 
