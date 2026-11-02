@@ -1,0 +1,2 @@
+# AI_Fundamentals
+ESC BASH_Certification_SelfCodedProjects
