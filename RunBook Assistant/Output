@@ -1,0 +1,21 @@
+root@escbash-lab:~# python ask_doc.py when is shutdown??
+It looks like your message got cut off — you only wrote "when". 
+
+Let me know what you'd like to know. Based on the runbook, here's what it covers that involves timing/conditions:
+
+- **Rollback**: Use `escctl rollback <service> --to-previous`; a rollback takes about **90 seconds**.
+- **Production deploys**: Any production deploy **after 6pm** must be approved by the on-call engineer.
+- **Incidents**: Always open an incident doc from the template before paging anyone.
+
+Could you clarify what you're asking "when" about? For example:
+- When can/ cannot production deploys happen?
+- When to page or open an incident doc?
+- Something else?
+
+I can answer from the runbook once I know which direction you meant.
+root@escbash-lab:~# python ask_doc.py "When cannot production deploys happen??"
+Based on the runbook, production deploys cannot happen without approval after **6pm**. Specifically:
+
+> "Any production deploy after 6pm must be approved by the on-call engineer."
+
+So, production deploys after 6pm require on-call engineer approval before they can proceed.
